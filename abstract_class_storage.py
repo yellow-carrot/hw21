@@ -1,4 +1,4 @@
-from abc import ABC, abstractmethod
+from abc import ABC, abstractmethod, abstractproperty
 
 
 class Storage(ABC):
@@ -15,8 +15,9 @@ class Storage(ABC):
     def get_free_space(self):
         pass
 
+    @property
     @abstractmethod
-    def get_items(self):
+    def items(self):
         pass
 
     @abstractmethod

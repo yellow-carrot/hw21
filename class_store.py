@@ -1,4 +1,4 @@
-from abstract_class_storage import Storage
+from abstract_class_storage import Storage, abstractproperty
 
 
 class Store(Storage):
@@ -29,8 +29,13 @@ class Store(Storage):
     def get_free_space(self):
         return self.capacity - sum(self.items.values())
 
-    def get_items(self):
-        return self.items
-
     def get_unique_items_count(self):
         return len(self.items)
+
+    @property
+    def items(self):
+        return self.items
+
+    @items.setter
+    def items(self, value):
+        self._items = value
