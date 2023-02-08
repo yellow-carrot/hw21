@@ -4,7 +4,7 @@ from abstract_class_storage import Storage
 class Shop(Storage):
 
     def __init__(self, items, capacity=20):
-        self.items = items
+        self.__items = items
         self.capacity = capacity
 
     def add(self, name, quantity):
@@ -33,11 +33,11 @@ class Shop(Storage):
 
     @property
     def items(self):
-        return self.items
+        return self.__items
 
     def get_unique_items_count(self):
         return len(self.items)
 
     @items.setter
     def items(self, value):
-        self.items = value
+        self.__items = value

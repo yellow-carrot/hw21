@@ -4,7 +4,7 @@ from abstract_class_storage import Storage, abstractproperty
 class Store(Storage):
 
     def __init__(self, items, capacity=100):
-        self.items = items
+        self.__items = items
         self.capacity = capacity
 
     def add(self, name, quantity):
@@ -34,8 +34,8 @@ class Store(Storage):
 
     @property
     def items(self):
-        return self.items
+        return self.__items
 
     @items.setter
     def items(self, value):
-        self._items = value
+        self.__items = value
